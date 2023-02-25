@@ -1,0 +1,64 @@
+.coursel {
+    width: 60%;
+    height: 700px;
+    background-color: black;
+}
+.courselInner{
+     height: 100%;
+     width: 100%;
+     background-position: center;
+     background-repeat: no-repeat;
+     background-size: cover;
+     display: flex;
+     /* animation: slide 5s infinite; */
+} 
+
+.courselInner .left{
+    flex: 7%; 
+    background-color: rgba(0, 0, 0, 0.6);
+    height: 100%;
+    display: grid;
+    place-items: center;
+    color: white;
+}
+.courselInner .left:hover{
+   cursor: pointer;
+}
+.courselInner .center{
+    flex: 86%; 
+    height: 100%;
+}
+.courselInner .right{
+    flex: 7%; 
+    background-color: rgba(0, 0, 0, 0.6);
+    height: 100%;
+    display: grid;
+    place-items: center;
+    color: white;
+}
+
+h1 {
+    font-size: 5rem;
+}
+
+p {
+    font-size: 2rem;
+}
+
+h1, p {
+    background-color: rgb(255, 255, 255, 0.8);
+    padding: 20px;
+    border-radius: 9px;
+}
+.courselInner .right:hover{
+    cursor: pointer;
+ }
+
+ @keyframes slide {
+    from {
+      background-position: 0 0;
+    }
+    to {
+      background-position: 100% 0;
+    }
+  }
