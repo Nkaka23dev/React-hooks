@@ -1,7 +1,7 @@
 import React from "react";
 
-export default function Planet({name, isGas}) {
-    console.log(props)
+export default function Planet(props) {
+
   return (
     <div>
       {props.isGas && (
