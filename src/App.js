@@ -1,7 +1,8 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import './App.css';
-import UseRef from './components/UseRef';
+import UseLayoutEffect from './components/UseLayoutEffect';
+
 
 function App() {
   const [email, setEmail] = useState("");
@@ -19,7 +20,7 @@ function App() {
     <button onClick={() => {
       setCount(prev => prev + 1)
     }} >Change it on click</button> */}
-    <UseRef/>
+    <UseLayoutEffect/>
     </>
   );
 }
