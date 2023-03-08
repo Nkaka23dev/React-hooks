@@ -1,29 +1,42 @@
-import { useState } from 'react';
+
+import { useReducer, useState } from 'react';
 import './App.css';
+import Reducer from './components/Reducer';
+
+const reducer = (state, action) => {
+  switch (action.type) {
+    case "INCREASE":
+      return { count: state.count + 1, showText: state.showText };
+    case "SHOWTEXT":
+      return { count: state.count, showText: !state.showText };
+    default:
+      return state;
+  }
+}
 
 function App() {
-  const [inputField, setInputField] = useState('');
-  const [count, setCount] = useState(0);
+  // const [count, setCount] = useState(0);
+  // const [showText, setShowText]  = useState(true);
 
-  const handleChanges = (e) => {
-    setInputField(e.target.value);
-    console.log(e.target.value)
-  }
-  const handleClick = () => {
-    setCount(prev => prev + 1)
-  }
+  const [state, dispatch] = useReducer(reducer, { count: 0, showtext: true })
+
+  // const handleClick = () => {
+  //   setCount(count => count + 1);
+  //   setShowText(!showText);
+  // }
   return (
-    <>
-      <form>
-        <input type="text" onChange={handleChanges} />
-      </form>
-      <div>
+    <div>
+      {/* <Reducer/> */}
+      <div style={{ display: "grid" }}>
+        <h1 style={{ margin: "auto" }}>{state.count}</h1>
 
-        <div>{inputField}</div>
-        <div>{count}</div>
-        <button onClick={handleClick} >Increment</button>
+        <button onClick={() => {
+          dispatch({type: "INCREASE"});
+          
+        }} style={{ margin: "auto" }}>Ruducer counter</button>
+        {state.showText && <h1 style={{ margin: "auto" }}>My text is here</h1>}
       </div>
-    </>
+    </div>
   );
 }
 
