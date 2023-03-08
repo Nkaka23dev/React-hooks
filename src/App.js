@@ -1,28 +1,23 @@
-import { useState } from 'react';
+import axios from 'axios';
+import { useEffect, useState } from 'react';
 import './App.css';
 
 function App() {
-  const [inputField, setInputField] = useState('');
+  const [email, setEmail] = useState("");
   const [count, setCount] = useState(0);
-
-  const handleChanges = (e) => {
-    setInputField(e.target.value);
-    console.log(e.target.value)
-  }
-  const handleClick = () => {
-    setCount(prev => prev + 1)
-  }
+  useEffect(() => {
+    axios.get("https://jsonplaceholder.typicode.com/posts/1/comments").then((data) => {
+      setEmail(data.data[0].email)
+      console.log("AN API IS CALLED RIGHT HERE")
+    }) 
+  },[])
   return (
     <>
-      <form>
-        <input type="text" onChange={handleChanges} />
-      </form>
-      <div>
-
-        <div>{inputField}</div>
-        <div>{count}</div>
-        <button onClick={handleClick} >Increment</button>
-      </div>
+    <h2>{email}</h2>
+    <h2>{count}</h2>
+    <button onClick={() => {
+      setCount(prev => prev + 1)
+    }} >Change it on click</button>
     </>
   );
 }
