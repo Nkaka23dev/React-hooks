@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import './App.css';
+import UseRef from './components/UseRef';
 
 function App() {
   const [email, setEmail] = useState("");
@@ -13,11 +14,12 @@ function App() {
   },[])
   return (
     <>
-    <h2>{email}</h2>
+    {/* <h2>{email}</h2>
     <h2>{count}</h2>
     <button onClick={() => {
       setCount(prev => prev + 1)
-    }} >Change it on click</button>
+    }} >Change it on click</button> */}
+    <UseRef/>
     </>
   );
 }
