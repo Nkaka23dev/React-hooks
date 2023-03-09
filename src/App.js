@@ -1,11 +1,11 @@
 import './App.css';
-import Children from './components/Children';
+import ContextTutorial from './components/ContextTutorial';
 
 function App() {
   return (
     <section style={{display:"grid"}}>
     <div style={{margin: "auto"}}>
-    <Children/>
+     <ContextTutorial/>
     </div>
     </section>
   );
