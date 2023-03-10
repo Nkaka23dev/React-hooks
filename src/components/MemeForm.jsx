@@ -1,6 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
+import MemesData from "../MemesData";
+import MemeImage from "./MemeImage";
 
-export default function Hero() {
+export default function MemeForm() {
+  const [bgImage, setbgImage] = useState("/memeimg.png")
+  const arr = MemesData.data.memes;
+  const handleClick = (e) => {
+    e.preventDefault();
+    const randomImage = Math.floor(Math.random() * arr.length);
+    setbgImage(arr[randomImage].url);
+  };
   return (
     <>
       <section>
@@ -17,6 +26,7 @@ export default function Hero() {
               />
             </div>
             <button
+              onClick={handleClick}
               className="w-full py-4 text-center mt-10 bg-[#711F8D] text-white font-semibold text-md"
               type="submit"
             >
@@ -25,6 +35,7 @@ export default function Hero() {
           </form>
         </div>
       </section>
+      <MemeImage bgImage = {bgImage}/>
     </>
   );
 }

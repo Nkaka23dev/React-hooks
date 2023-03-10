@@ -6,7 +6,7 @@ export default function Header() {
       <div className="max-w-4xl mx-auto  py-4 px-3 bg-[#684276] text-white flex justify-between items-center">
         <div>
           <img
-            src="../public/Logo.png"
+            src="/Logo.png"
             alt=""
             className="object-center aspect-video"
           />
